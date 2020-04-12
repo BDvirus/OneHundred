@@ -1,0 +1,108 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#viewDiv {
+  padding: 0;
+  margin: 0;
+  padding-top: 55px;
+  height: calc(100vh - 56px);
+  width: 100vw;
+}
+.alert {
+  display: none;
+}
+
+main > .container {
+  /* border: 2px solid red; */
+
+  padding: 56px 0px 0px 0px;
+}
+
+.footer {
+  z-index: 99999999;
+  background-color: #93c4d3;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.modal {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #93c4d3;
+}
+.modal.open {
+  display: block;
+}
+
+.modal__header,
+.modal__footer {
+  height: 100px;
+  padding-top:30px;
+  text-align: center;
+}
+.modal__content,
+.modal__footer {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.modal__content {
+  bottom: 100px;
+  top: 100px;
+  overflow-y: auto;
+}
+.modal__footer {
+  bottom: 0;
+  height: 206px;
+    color: #5f828c;
+    
+  font-size: 0.8rem;
+  z-index: 999999999;
+}
+
+.roundedSearch {
+  display: flex;
+  height: 50px;
+  z-index: 3;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  box-shadow: 5px 6px 5px -4px rgba(0, 0, 0, 0.41);
+  background: #fff;
+  width: 268px;
+  border-radius: 24px;
+  margin: auto auto;
+  padding: 7px;
+}
+
+html[dir="rtl"] .esri-menu__list-item {
+  
+  text-align: right;
+}
+
+.alretsZone {
+  position: absolute;
+  top: 61px;
+  z-index: 999999;
+}
+
+.emojiMask  {
+  margin-top: 40px;
+margin-bottom: 40px;
+clear:both;
+}
+
+.headerIcon {
+  margin-left: 10px;
+}
