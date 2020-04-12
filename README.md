@@ -1,4 +1,4 @@
-# Demo App
+# OneHundred App
 
 > TypeScript with the [ArcGIS API 4 for JavaScript](https://developers.arcgis.com/javascript/)
 
