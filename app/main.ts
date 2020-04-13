@@ -10,7 +10,10 @@ import { Geometry, Polygon } from 'esri/geometry';
 import SceneView from 'esri/views/SceneView';
 import Circle from 'esri/geometry/Circle';
 import GraphicsLayer from 'esri/layers/GraphicsLayer';
-
+import esriConfig from 'esri/config';
+import WebTileLayer from 'esri/layers/WebTileLayer';
+import Basemap from 'esri/Basemap';
+import VectorTileLayer from 'esri/layers/VectorTileLayer';
 
 
 const measureUnits = 'meters';
@@ -37,24 +40,66 @@ let app = {
   containerMap: 'viewDiv',
   containerScene: 'sceneViewDiv',
   activeView: null,
-  searchWidget: null
+  searchWidget: null,
+  useGoogleMaps: true
 };
 
 
-const map = new Map({
-  basemap: app.basemap
+esriConfig.request.corsEnabledServers
+  .push('mts0.google.com', 'mts1.google.com', 'mts2.google.com',
+    'mts3.google.com');
+
+
+let vtlLayer = new VectorTileLayer({
+  url: 'https://basemaps.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer'
 });
+
+let basemap = new Basemap({
+  baseLayers: [vtlLayer]
+});
+
+
+const map = new Map({});
+
 
 app.mapView = new MapView({
   container: app.containerMap,
   map: map,
   center: app.center,
   scale: app.scale
-
-
 });
 
+
+ 
+
+/*
+let tiledLayer = new WebTileLayer({
+  urlTemplate: 'https://mts{subDomain}.google.com/vt/lyrs=s@186112443&hl=x-local&src=app&x={col}&y={row}&z={level}&s=Galile',
+  subDomains: ['0', '1', '2', '3'],
+  copyright: 'Google Maps'
+});
+
+map.add(tiledLayer);
+*/
+
+if (!app.useGoogleMaps) {
+  map.basemap = basemap;
+}
+else {
+  let tiledLayer = new WebTileLayer({
+    urlTemplate: 'https://mts{subDomain}.google.com/vt/lyrs=m&hl=he&src=app&x={col}&y={row}&z={level}&s=rehovot',
+    subDomains: ['0', '1', '2', '3'],
+    copyright: 'Google Maps'
+  });
+
+  map.add(tiledLayer);
+}
+
+
+
+
 setActiveView(app.mapView);
+
 
 /*
 var map = new Map({
@@ -226,7 +271,7 @@ function drawText(point, distance) {
       haloColor: 'white',
       haloSize: 1
     }
-  })
+  });
   app.activeView.graphics.add(textGraphic);
 }
 
