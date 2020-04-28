@@ -25,53 +25,32 @@
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/themes/light/main.css">
-  <link rel="stylesheet" href="app/style.css?v=3">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
 
   <!-- Windows Phone -->
   <meta name="msapplication-navbutton-color" content="#522307">
   <!-- iOS Safari -->
   <meta name="apple-mobile-web-app-status-bar-style" content="#522307">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="./assets/manifest.json">
   <meta name="msapplication-TileColor" content="#55737b">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#55737b">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EF3SD69YCC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-EF3SD69YCC');
-  </script>
-
-  <script>
-    var locationPath = location.pathname.replace(/\/[^/]*$/, "");
-    window.dojoConfig = {
-      packages: [
-        {
-          name: "app",
-          location: locationPath + "/app"
-        }
-      ]
-    };
-  </script>
+ 
 </head>
 <body class="d-flex flex-column h-100">
   <div id="welcomePage" class="modal open">
@@ -79,7 +58,7 @@
       <h2 style="color:#55737b">יוצאים רק 100 מטר</h2>
     </div>
     <div class="modal__content">
-      <img class="emojiMask" src="./app/emojiMask.png" width="128" />
+      <img class="emojiMask" src="./assets/emojiMask.png" width="128" />
       <div>
         איפה אתה גר?
       </div>
@@ -94,63 +73,21 @@
       </div>
       <br />
       <a href='whatsapp://send?text=100 מטר: https://100.dvirus.co.il'>
-        <img src="app/whatsapp.png" width="48" />
+        <img src="./assets/whatsapp.png" width="48" />
       </a>
     </div>
     <div class="modal__footer">
     </div>
   </div>
 
- 
-  <!-- Modal 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">הבית שלי נמצא ב:</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-
-        </div>
-        <div class="modal-footer"> 
-        </div>
-      </div>
-    </div>
-  </div>
--->
-
-
-
+  
 
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">
-        <img class="headerIcon" src="./app/emojiMask.png" width="30" />
-
-        100 מטר</a>
-
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-
-        </ul>
-
-      </div> -->
+        <img class="headerIcon" src="./assets/emojiMask.png" width="30" />
+       100 מטר</a>
     </nav>
   </header>
 
@@ -168,7 +105,6 @@
     </div>
 
     <div id="viewDiv"></div>
-    <!-- <div class="container">        </div> -->
   </main>
 
   <footer class="footer mt-auto py-3">
@@ -178,7 +114,10 @@
   </footer>
 
 
+  
+  
 
+   
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -187,10 +126,34 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> 
+    <script src="https://js.arcgis.com/4.15"></script>   
+ 
+  <script>
+    // once the ArcGIS API for JavaScript has loaded
+    // we must use Dojo's require() to load the bundled webpack output
+    // only the Dojo loader will be able to resolve the bundle's references
+    // to "external" dependencies on modules in the esri and dojo packages
+    //require(["./js/vendors~app.chunk.js", "./js/app.js"], function (vendor, main) {});
+    //require(["./js/app.js"], function (main) {});
+     require(['<%= htmlWebpackPlugin.files["js"][0] %>'], function (main) {});
 
-  <script src="https://js.arcgis.com/4.15"></script>
-  <script>require(["app/main"]);</script>
+    
+
+</script>
+
+
+
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-EF3SD69YCC"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag() { dataLayer.push(arguments); }
+   gtag('js', new Date());
+
+   gtag('config', 'G-EF3SD69YCC');
+ </script>
+
 
 </body>
 </html>

@@ -1,3 +1,14 @@
-node_modules/*
-.vscode/*
-app/*.js*
+# dependencies
+node_modules
+
+# production
+build
+
+# misc
+.DS_Store
+
+npm-debug.log
+yarn-error.log
+yarn.lock
+.yarnclean
+.vscode

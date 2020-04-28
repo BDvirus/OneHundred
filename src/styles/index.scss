@@ -1,6 +1,11 @@
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
+$body-color: slateblue;
+
+body {
+  color: $body-color;
+  font-family: sans-serif;
+}
+
+
 
 #viewDiv {
   padding: 0;

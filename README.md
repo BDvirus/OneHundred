@@ -1,10 +1,32 @@
-# OneHundred App
+# Webpack Frontend Starterkit
 
-> TypeScript with the [ArcGIS API 4 for JavaScript](https://developers.arcgis.com/javascript/)
+[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
 
-## Usage
+A lightweight foundation for your next webpack based frontend project.
 
-1. Clone the repo and `npm install` dependencies
-2. `npm run dev` to compile `/app/main.ts` to `main.js` in the same folder and watch for changes
-3. launch `index.html` in your browser of choice.
-4. `npm run lint` to run [TSLint](https://github.com/palantir/tslint) on TypeScript files.
+
+### Installation
+
+```
+npm install
+```
+
+### Start Dev Server
+
+```
+npm start
+```
+
+### Build Prod Version
+
+```
+npm run build
+```
+
+### Features:
+
+* ES6 Support via [babel](https://babeljs.io/) (v7)
+* SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
+* Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
+
+When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.

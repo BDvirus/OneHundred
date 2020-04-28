@@ -1,28 +1,32 @@
+import '../styles/index.scss';
 import MapView from 'esri/views/MapView';
 import Track from 'esri/widgets/Track';
 import Graphic from 'esri/Graphic';
 import Map from 'esri/Map';
 import geometryEngine from 'esri/geometry/geometryEngine';
-import Locate from 'esri/widgets/Locate';
 import Search from 'esri/widgets/Search';
 import Point from 'esri/geometry/Point';
-import { Geometry, Polygon } from 'esri/geometry';
 import SceneView from 'esri/views/SceneView';
-import Circle from 'esri/geometry/Circle';
-import GraphicsLayer from 'esri/layers/GraphicsLayer';
 import esriConfig from 'esri/config';
 import WebTileLayer from 'esri/layers/WebTileLayer';
 import Basemap from 'esri/Basemap';
 import VectorTileLayer from 'esri/layers/VectorTileLayer';
 
 
+import Locate from 'esri/widgets/Locate';
+import { Polygon } from 'esri/geometry';
+import Circle from 'esri/geometry/Circle';
+import GraphicsLayer from 'esri/layers/GraphicsLayer';
+import Geometry from 'esri/geometry/Geometry';
+
 const measureUnits = 'meters';
+
 let myBuffer: Polygon;
 let bufferGraphic: any;
 let lineGraphic: any;
 let textGraphic: any;
 
-let app = {
+const app = {
   center: [35.927856445311086, 31.15766030505698],
   scale: 2311162,
   maxAllowDistance: 100,
@@ -34,17 +38,17 @@ let app = {
     bottom: 0
   },
   uiComponents: ['zoom', 'compass', 'attribution'],
-  mapView: null,
-  sceneView: null,
-  searchGeometry: '',
+  mapView: null as MapView,
+  sceneView: null as SceneView,
+  searchGeometry: null as Geometry,
   containerMap: 'viewDiv',
   containerScene: 'sceneViewDiv',
-  activeView: null,
-  searchWidget: null,
+  activeView: null as MapView,
+  searchWidget: null as Search,
   useGoogleMaps: true
 };
 
-
+// @ts-ignore
 esriConfig.request.corsEnabledServers
   .push('mts0.google.com', 'mts1.google.com', 'mts2.google.com',
     'mts3.google.com');
@@ -70,7 +74,7 @@ app.mapView = new MapView({
 });
 
 
- 
+
 
 /*
 let tiledLayer = new WebTileLayer({
@@ -129,7 +133,6 @@ function setActiveView(view: any) {
 }
 
 
-
 app.searchWidget = new Search(
   {
     view: app.activeView,
@@ -137,6 +140,7 @@ app.searchWidget = new Search(
     popupEnabled: false
 
   },
+  // @ts-ignore
   'searchWidgetDiv'
 );
 /*
@@ -151,9 +155,11 @@ app.searchWidget.on('search-complete', function (event) {
 });
 
 
+
 app.searchWidget.on('select-result', function (event) {
   let res = event.result;
   app.searchGeometry = res.feature.geometry;
+  // @ts-ignore
   myBuffer = drawCircleWithMeasurement(new Point(res.feature.geometry));
   $('#welcomePage').removeClass('open');
   track.start();
@@ -172,10 +178,12 @@ const locate = new Locate({
 app.activeView.ui.add(locate, 'top-left');
 */
 
+
 const track = new Track({
   view: app.activeView,
   graphic: new Graphic({
     symbol: {
+      // @ts-ignore
       type: 'simple-marker',
       size: '12px',
       color: 'green',
@@ -235,11 +243,13 @@ track.on('track', function (trackEvent) {
 });
 
 
-
-function drawLine(point, point2) {
+function drawLine(point: any, point2: any) {
   app.activeView.graphics.remove(lineGraphic);
   lineGraphic = new Graphic({
-    geometry: {
+    geometry:
+
+    {
+      // @ts-ignore
       type: 'polyline',
       paths: [
         [point.longitude, point.latitude],
@@ -247,6 +257,7 @@ function drawLine(point, point2) {
       ]
     },
     symbol: {
+      // @ts-ignore
       type: 'simple-line',
       color: '#333',
       width: 1
@@ -257,11 +268,12 @@ function drawLine(point, point2) {
 
 
 
-function drawText(point, distance) {
+function drawText(point: Point, distance: any) {
   app.activeView.graphics.remove(textGraphic);
   textGraphic = new Graphic({
     geometry: point,
     symbol: {
+      // @ts-ignore
       type: 'text',
       text: distance.toFixed(2) + ' מטר',
       color: 'black',
@@ -283,6 +295,7 @@ function drawCircleWithMeasurement(point: any) {
   let buffer = geometryEngine.geodesicBuffer(point, app.maxAllowDistance, 'meters');
 
   bufferGraphic = new Graphic({
+    // @ts-ignore
     geometry: buffer,
     symbol: polySym
   });
@@ -315,5 +328,5 @@ var bufferGraphic;
     }
  */
 
-
-window.myapp = app;
+// @ts-ignore
+//window.myapp = app;
